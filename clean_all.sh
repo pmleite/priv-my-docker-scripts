@@ -1,10 +1,11 @@
 #/bin/bash
 # Script do delete containers, images and volumes
 # 2022 - By: Paulo Leite
-# NOTE: Needs to install figlet
+# NOTE:if you have figlet installer uncommentline 7 and coment line 8
 
 clear
-figlet "cleaning docker"
+#figlet "cleaning docker"
+echo "Cleaning docker ecosystem" \ echo "===================================================="
 
 #check if there are runnig containers to stop
 if [ $( docker ps -q | wc -l ) -gt 0 ]; then
