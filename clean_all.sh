@@ -49,6 +49,16 @@ if [ $( docker volume ls -q | wc -l ) -gt 0 ]; then
   echo "There are no volumes to remove"
 fi
 
+#check if there are volumes
+if [ $( docker network ls -q | wc -l ) -gt 0 ]; then
+  echo "Delete networks"
+  docker network rm $(docker network ls -q)
+  echo "Networks deleted!"
+  else
+  # there are no images
+  echo "There are no Networks to remove"
+fi
+
 echo 
 echo
 echo "Done!"
