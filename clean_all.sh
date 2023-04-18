@@ -2,7 +2,6 @@
 
 # Script do delete containers, images and volumes
 # 2022 - By: Paulo Leite
-# NOTE: if you have figlet installer uncommentline 7 and coment line 8
 
 clear
 echo "===================================================="
