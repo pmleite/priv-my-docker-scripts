@@ -1,11 +1,12 @@
 #/bin/bash
+
 # Script do delete containers, images and volumes
 # 2022 - By: Paulo Leite
 # NOTE:if you have figlet installer uncommentline 7 and coment line 8
 
 clear
-#figlet "cleaning docker"
-echo "Cleaning docker ecosystem" \ echo "===================================================="
+echo "Cleaning docker ecosystem" 
+echo "===================================================="
 
 #check if there are runnig containers to stop
 if [ $( docker ps -q | wc -l ) -gt 0 ]; then
@@ -15,10 +16,10 @@ if [ $( docker ps -q | wc -l ) -gt 0 ]; then
   echo "Containers stoped!"
   else
   # there are no runnnig containers 
-  echo "There are no containers to STOP"
+  echo "There are no Containers to STOP"
 fi
 
-#check if there are stop continers to delete
+#check if there are stop containers to delete
 if [ $( docker ps -aq | wc -l ) -gt 0 ]; then
   # Delete stoped cotainers
   echo "Deleting containers"
@@ -36,7 +37,7 @@ if [ $( docker image ls -q | wc -l ) -gt 0 ]; then
   echo "Images deleted!"
   else
   # there are no images
-  echo "There are no images to remove"
+  echo "There are no Images to remove"
 fi
 
 #check if there are volumes
@@ -46,16 +47,16 @@ if [ $( docker volume ls -q | wc -l ) -gt 0 ]; then
   echo "Volumes deleted!"
   else
   # there are no images
-  echo "There are no volumes to remove"
+  echo "There are no Volumes to remove"
 fi
 
 #check if exists Network
 if [ $( docker network ls -q | wc -l ) -gt 0 ]; then
   echo "Delete networks"
-  docker network rm $(docker network ls -q)
+  docker network prune -f
   echo "Networks deleted!"
   else
-  # there are no images
+  # there are no networks
   echo "There are no Networks to remove"
 fi
 
